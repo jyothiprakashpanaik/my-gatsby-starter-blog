@@ -1,6 +1,10 @@
 import React from 'react'
 import { ConstainerWrapper } from "../elements"
+import {Nav} from "../components"
 
 export const Container = ({children}) => {
-    return <ConstainerWrapper>{children}</ConstainerWrapper>
+    return <ConstainerWrapper>
+        <Nav/>
+        {children}
+    </ConstainerWrapper>
 }
