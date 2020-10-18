@@ -38,7 +38,7 @@ export const Footer = () => {
                     <img src={data.facebook.publicURL} alt="Facebook Logo"></img>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src={data.linkedin.publicURL} alt="Facebook Logo"></img>
+                <img src={data.linkedin.publicURL} alt="Linkedin Logo"></img>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer">
                     <img src={data.instagram.publicURL} alt="Instagram Logo"></img>
