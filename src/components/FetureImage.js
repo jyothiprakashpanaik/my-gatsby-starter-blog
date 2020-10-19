@@ -7,7 +7,7 @@ export const FetureImage = ({fixed}) => {
 
     const data = useStaticQuery(graphql`
         query {
-            imageSharp(fixed: {originalName: {eq: "office.jpg"}}) {
+            imageSharp(fixed: {originalName: {eq: "office.png"}}) {
                 fixed {
                     ...GatsbyImageSharpFixed
                 }
