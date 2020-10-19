@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { 
     FooterWrapper, 
     FooterSocialWrapper, 
@@ -34,16 +34,16 @@ export const Footer = () => {
     return <FooterWrapper>
         <FooterSocialWrapper>
             <FooterSocialIcons>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                     <img src={data.facebook.publicURL} alt="Facebook Logo"></img>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                 <img src={data.linkedin.publicURL} alt="Linkedin Logo"></img>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com#" target="_blank" rel="noopener noreferrer">
                     <img src={data.instagram.publicURL} alt="Instagram Logo"></img>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com#" target="_blank" rel="noopener noreferrer">
                     <img src={data.twitter.publicURL} alt="Twitter Logo"></img>
                 </a>
             </FooterSocialIcons>
