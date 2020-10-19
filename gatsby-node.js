@@ -29,21 +29,20 @@ Array.from({ length:numPages }).forEach((_,i) => {
             skip: i * postperPage,
             numPages,
             currentPage: i+1,
-        }
+        },
     })
  })
 
 
-/* // creat a single blog post
- data.allMdx.edges.forEach(edge =>  {
+// creat a single blog post
+data.allMdx.edges.forEach(edge =>  {
      const slug = edge.node.frontmatter.slug
      const id = edge.node.id
-     actions.createPages({
+     actions.createPage({
          path: slug,
          component: require.resolve(`./src/templates/singlePost.js`),
-         context: {id},
-
-     })
- }) */
-
+         context: { id },
+    })
+ })
 }
+//www.Doodly.com $67
