@@ -1,86 +1,114 @@
 ---
-title: My First Post! Hello World!
+title: Categorical Encoder using sciket-Learn
 slug: my-first-post
 date: 2020-10-17
-featureImage: nature.jpg
-excerpt: Build this day on a foundation of pleasant thoughts. Never fret at any imperfections that you fear may impede your progress. Remind yourself, as often as necessary, that you are a creature of God and have the power to achieve any dream by lifting up your thoughts. You can fly when you decide that you can. Never consider yourself defeated again. Let the vision in your heart be in your life's blueprint. Smile!
+featureImage: binary.jpg
+excerpt: If you’re new to Machine Learning, you might get confused between these two — Label Encoder and One Hot Encoder.
 ---
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
- 
-
-## Horizontal Rules
-
-
-___
-
-Cordially convinced did incommode existence put out suffering certainly. Besides another and saw ferrars limited ten say unknown. On at tolerably depending do perceived. Luckily eat joy see own shyness minuter. So before remark at depart. Did son unreserved themselves indulgence its. Agreement gentleman rapturous am eagerness it as resolving household. Direct wicket little of talked lasted formed or it. Sweetness consulted may prevailed for bed out sincerity. 
+[Jyothi Prakash](https://jyothiprakashpanaik.github.io/porfolio/) Oct 17, 2020 . 5 min read
 
 ---
 
-So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.
+>Categorical encoding is a process of converting categories to numbers.
+
+
+<center>
+<span>* * *</span>
+</center>
+
+*To begin with you can find the sklearn documentation [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing)*
+
+### What is Categorical Encoding?
+
+In the dataset converting categorical columns to numerical columns so that a machine learning algorithm understands it. This process is called categorical encoding.
+
+![categorical Img](categorical.jpg)
+
+### Types of categorical Encoding
+
+“Cat”, “Dog” or “Zebra” are called categorical variables. Many machine learning algorithms are unable to work with categorical variables. In such a case we should encode these variables! How? There are a few ways.
+
+There are many ways to hande categorical data., most popular are :
++ **Label Encoding**
++ **One Hot Encoding**
 
 ***
 
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
+## Label Encoding
 
+![Label Encoding](http://www.stodolkiewicz.com/wp-content/uploads/2019/12/screenshot.368-265x300.jpg)
 
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered 
-
-1. First item
-2. Second item
-3. Third item
+Label Encoding is a popular encoding technique for handling categorical variables.
+In Label Encoding ***every categor***y is given a ***unique value*** of integer based upon the alphabitical series.,
+`cat=0`,`dog=1`,`zebra=2`.
 
 ## Code
 
 
-``` js
-var foo = function (bar) {
-  return bar++;
-};
+``` python
+#Label Encoding
 
-console.log(foo(5));
+import pandas as pd
+df = pd.DataFrame({'Categories':['cat','dog','zebra']}) 
+
+from sklearn.preprocessing import LabelEncoder
+label_encoder = LabelEncoder() 
+df['Encoding']= label_encoder.fit_transform(df['Categories']) 
+
+print(df)
 ```
 
-[title](https://www.example.com)
+#### _output_:
+![Output](label_encoding.PNG)
 
-![alt text](nature.jpg)
 
-## Tables
 
-| Syntax | Description | State |
-| ----------- | ----------- | ----------- |
-| Header | Title | Telangana |
-| Paragraph | Text | Andhra Predesh |
-| Header | Title | Odissa |
-| Paragraph | Text | Gujarath |
-| Header | Title | Rajasthan |
-| Paragraph | Text | Maharastra |
-| Header | Title | China |
-| Paragraph | Text | Kerala |
-| Header | Title | Uttar Predesh |
-| Paragraph | Text | Andaman Necobar Ilands|
+## One Hot Encoding
 
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
+![One Hot Encoding](http://www.stodolkiewicz.com/wp-content/uploads/2019/12/screenshot.370-300x185.jpg)
+
+In One Hot Encoding, we use as many columns as the number of classes we want to encode. Notice, that we no longer have any built-in assumptions about our classes (as we did have with Label Encoding).
+
+In a neural network, using One Hot Encoding, the output layer would have exactly 3 output neurons.
+
+`cat=1,0,0`,`dog=0,1,0`,`zebra=0,0,1`
+## Code
+
+
+``` python
+#one hot encoding
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder
+
+df = pd.DataFrame({'Categories':['cat','dog','zebra']}) 
+
+enc = OneHotEncoder(handle_unknown='ignore')
+enc_df = pd.DataFrame(enc.fit_transform(df[['Categories']]).toarray())
+df = df.join(enc_df)
+print(df)
+
+# alternative for one hot encoding
+'''
+df = pd.DataFrame({'Categories':['cat','dog','zebra']}) 
+df = pd.get_dummies(df['Categories'])
+print(df)
+
+'''
+
+```
+
+#### _output_:
+![Output](onehot_encoding.PNG)
+
+
+
+
+>[For reference you can Follow this link it will redirect to the scource code.](https://colab.research.google.com/drive/1YSe1Iqfk7yD6I-z2jSsEZ6z14mM8wPyp?usp=sharing)
+
+---
+# Reference:
+1. [sklearn-documentation](https://scikit-learn.org/)
+2. [Youtube](https://www.youtube.com/channel/UCNU_lfiiWBdtULKOw6X0Dig)
+3. [Stodolkiewicz](https://www.stodolkiewicz.com)

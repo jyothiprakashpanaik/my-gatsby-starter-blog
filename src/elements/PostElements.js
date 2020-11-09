@@ -27,10 +27,15 @@ export const PostWrapper = styled.main`
         margin-top: 2rem;
     }
 
-    h1 {
+    h1:not(:first-child) {
         font-size: 2.25rem;
         line-height: 2.5rem;
         font-weight: 400;
+    }
+
+    h1:first-child {
+        font-size: 2.25rem;
+        font-weight: 700;
     }
 
     h2 {
@@ -74,6 +79,11 @@ export const PostWrapper = styled.main`
 
     a{
         color: ${props => props.theme.colors.main1};
+        text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+        filter: brightness(110%);
         text-decoration: underline;
     }
 
@@ -111,8 +121,8 @@ export const PostWrapper = styled.main`
         font-family: ${props => props.theme.fonts.code};
         font-size: 1rem;
         line-height: 1.875rem;
-        color: ${props => props.theme.colors.light1};
-        background-color: ${props => props.theme.colors.dark3};
+        color: ${props => props.theme.colors.dark3};
+        background-color:  ${props => props.theme.colors.light1};
         padding: 0 0.3rem;
     }
 
@@ -148,6 +158,11 @@ export const PostWrapper = styled.main`
         text-align: left;
         padding: 0.5rem;
         border: 1px solid ${props => props.theme.colors.dark3};
+    }
+
+    img {
+        width: 100%;
+        height: auto;
     }
     
 
